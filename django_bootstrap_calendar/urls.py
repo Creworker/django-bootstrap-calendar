@@ -1,18 +1,11 @@
 # -*- coding: utf-8 -*-
 __author__ = 'sandlbn'
 
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from views import CalendarJsonListView, CalendarView
+#url(r'^djrichtextfield/', include('djrichtextfield.urls')),
 
-urlpatterns = patterns('django_bootstrap_calendar.views',
-                       url(
-                           r'^json/$',
-                           CalendarJsonListView.as_view(),
-                           name='calendar_json'
-                       ),
-                       url(
-                           r'^$',
-                           CalendarView.as_view(),
-                           name='calendar'
-                       ),
-                       )
+urlpatterns = [
+                url(r'^json/$',CalendarJsonListView.as_view(),name='calendar_json'),
+                url(r'^$',CalendarView.as_view(),name='calendar'),
+]
